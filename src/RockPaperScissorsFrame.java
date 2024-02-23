@@ -29,12 +29,11 @@ public class RockPaperScissorsFrame extends JFrame {
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Title Label
+
         titleLabel = new JLabel("Rock Paper Scissors Game", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         add(titleLabel, BorderLayout.NORTH);
 
-        // Button Panel
         buttonPanel = new JPanel();
         buttonPanel.setBorder(BorderFactory.createTitledBorder("Select Your Move"));
         rockButton = new JButton(new ImageIcon(new ImageIcon("src/rock.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
@@ -47,7 +46,7 @@ public class RockPaperScissorsFrame extends JFrame {
         buttonPanel.add(quitButton);
         add(buttonPanel, BorderLayout.CENTER);
 
-        // Stats Panel
+
         JPanel statsPanel = new JPanel(new GridLayout(3, 2));
         playerWinsLabel = new JLabel("Player Wins:");
         computerWinsLabel = new JLabel("Computer Wins:");
@@ -66,19 +65,16 @@ public class RockPaperScissorsFrame extends JFrame {
         statsPanel.add(tiesField);
         add(statsPanel, BorderLayout.SOUTH);
 
-        // Results TextArea
         resultsTextArea = new JTextArea(10, 40);
         resultsTextArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(resultsTextArea);
         add(scrollPane, BorderLayout.EAST);
 
-        // Initialize game stats
         playerWins = 0;
         computerWins = 0;
         ties = 0;
         gameResults = new HashMap<>();
 
-        // Add action listeners
         rockButton.addActionListener(e -> playGame("rock"));
         paperButton.addActionListener(e -> playGame("paper"));
         scissorsButton.addActionListener(e -> playGame("scissors"));
